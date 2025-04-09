@@ -1,45 +1,49 @@
 #include <stdio.h>
 #include <string.h>
+#include "header.h"
 
-int Addition(int a, int b)
-{
-	int Resultat;
-	Resultat = a + b;
-	return Resultat;
-}
 
-int  Soustraction(int a, int b)
-{
-	int Resultat;
-	Resultat = a -b;
-	return Resultat;
-}
 //-------------------------------------------------------------------------------------------------------------------------------------//
 
 int main(void)
 {
-	char Operation[256];
-	char add[256] = "Addition";
-	int a,b,Somme,Difference;
+	char Operateurs[] = "+ - / * ";
+	char Operateur[2];
+	char OperateurDiv[2] = "/";
+	char OperateurAdd[2] = "+";
+	char OperateurSous[2] = "-";
+	char OperateurMul[2] = "*";
+	float a,b,Somme,Difference, Produit, Quotient;
 
-	printf("choissiez l'operation que vous voulez faire : Addition ou Soustraction\n");
-	scanf("%s", Operation);
+	printf("Ecrivez Votre Operation (ex 1+2) : ");
+	scanf("%d%s%d", &a,Operateur, &b);
 
-	printf("Entrez La valeur du premier nombre : ");
-	scanf("%d", &a);
-
-	printf("Entrez La valeur du deuxieme nombre : ");
-	scanf("%d", &b);
-
-	if (strcmp(Operation, add) == 0)
+	while ((strstr(Operateurs, Operateur) == NULL) && (strstr(Operateur, OperateurDiv) != NULL && b == 0 ) )
 	{
-		Somme = Addition(a,b);
-		printf("Le resultat de l'addition est : %d ", Somme);
+		printf("Veillez entrez un Vrai Operateur(+ ou - ou / ou *) ou n'essayez pas de diviser par 0");
+		scanf("%d%s%d", &a,Operateur, &b);
 	}
-	else
+
+	if (strcmp(Operateur, OperateurAdd) == 0)
+	{	
+		Somme = Addition(a,b);
+		printf("Le resultat de l'addition est : %.2f ", Somme);
+	}
+	else if (strcmp(Operateur, OperateurSous) == 0)
 	{
 		Difference = Soustraction(a,b);
-		printf("Le resultat de la soustaction est : %d ", Difference);
+		printf("Le resultat de la soustraction est ; %.2f ", Difference);
 	}
+	else if (strcmp(Operateur, OperateurMul) == 0)
+	{
+		Produit = Multiplication(a,b);
+		printf("Le resultat de la multiplication est : %.2f ", Produit);
+	}
+	else if (strcmp(Operateur, OperateurDiv) == 0)
+	{
+		Quotient = Division(a,b);
+		printf("Le resultat de la division est : %.2f ", Quotient);
+	}
+	return 0;
 }
 
