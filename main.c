@@ -1,24 +1,25 @@
 #include <stdio.h>
 #include <string.h>
 
-int main Addition(int a, int b)
+int Addition(int a, int b)
 {
 	int Resultat;
 	Resultat = a + b;
 	return Resultat;
 }
 
-int main Soustraction(int a, int b)
+int  Soustraction(int a, int b)
 {
 	int Resultat;
 	Resultat = a -b;
 	return Resultat;
 }
+//-------------------------------------------------------------------------------------------------------------------------------------//
 
 int main(void)
 {
-	int Operation[256];
-	int add[256] = "Additon";
+	char Operation[256];
+	char add[256] = "Addition";
 	int a,b,Somme,Difference;
 
 	printf("choissiez l'operation que vous voulez faire : Addition ou Soustraction\n");
