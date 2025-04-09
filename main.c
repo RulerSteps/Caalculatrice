@@ -7,22 +7,23 @@
 
 int main(void)
 {
-	char Operateurs[] = "+ - / * ";
+	char Operateurs[] = "+ - /  * ";
 	char Operateur[2];
 	char OperateurDiv[2] = "/";
 	char OperateurAdd[2] = "+";
 	char OperateurSous[2] = "-";
 	char OperateurMul[2] = "*";
 	float a,b,Somme,Difference, Produit, Quotient;
+//-------------------------------------------------------------------------------------------------------------------------------------------------
 
-	printf("Ecrivez Votre Operation (ex 1+2) : ");
-	scanf("%d%s%d", &a,Operateur, &b);
-
-	while ((strstr(Operateurs, Operateur) == NULL) && (strstr(Operateur, OperateurDiv) != NULL && b == 0 ) )
+	printf("Ecrivez Votre Operation (ex 1 + 2) : ");
+	scanf("%f %s %f", &a,Operateur, &b);
+	while ( strstr(Operateurs, Operateur) == NULL || strcmp(Operateur, OperateurDiv) == 0 && b == 0 )
 	{
-		printf("Veillez entrez un Vrai Operateur(+ ou - ou / ou *) ou n'essayez pas de diviser par 0");
-		scanf("%d%s%d", &a,Operateur, &b);
+		printf("Veillez entrez un Vrai Operateur(+ ou - ou / ou *) ou n'essayez pas de diviser par 0 : ");
+		scanf("%f %s %f", &a,Operateur, &b);
 	}
+	
 
 	if (strcmp(Operateur, OperateurAdd) == 0)
 	{	
